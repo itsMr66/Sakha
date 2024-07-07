@@ -1,0 +1,411 @@
+<html>
+
+<head>
+  <title>Sakha - Your Spiritual Friend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-color: #f0f0f0;
+      --primary-color: #FF8C00;
+      --text-color: #333;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+      animation: pulse 1s;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(2);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .logo img {
+      width: 200px;
+      filter: drop-shadow(3px 3px 5px var(--shadow-color)) drop-shadow(-3px -3px 5px rgba(255, 255, 255, 0.11));
+      border-radius: 20px;
+    }
+
+    .welcome-message {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      position: relative;
+      height: 2.5em;
+      min-height: 2.5em;
+      
+      filter: drop-shadow(3px 3px 5px var(--shadow-color)) drop-shadow(-3px -3px 5px rgba(255, 255, 255, 1));
+    }
+
+    .auth-container {
+      background: var(--card-bg);
+      backdrop-filter: blur(0px);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 8px 8px 15px var(--shadow-color), -8px -8px 15px rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+      width: 95%;
+
+      max-width: 400px;
+      
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: inset 3px 3px 5px var(--shadow-color), inset -3px -3px 5px rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .auth-input:focus {
+      outline: none;
+      box-shadow: inset 5px 5px 8px var(--shadow-color), inset -5px -5px 8px rgba(255, 255, 255, 0.7);
+    }
+
+    .auth-button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 10px 0;
+      width: 100%;
+      box-shadow: 3px 3px 5px var(--shadow-color), -3px -3px 5px rgba(255, 255, 255, 0.7);
+    }
+
+    .auth-button:hover {
+      background-color: #e67300;
+      transform: translateY(-3px);
+    }
+
+    .forgot-password {
+      margin-top: 10px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+
+    .signup-link a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    .onboarding-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      top: 0;
+
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+
+    .onboarding-message {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    .onboarding-input {
+      font-size: 1.5rem;
+      padding: 15px;
+      border: none;
+      border-radius: 15px;
+      background: var(--card-bg);
+      box-shadow: inset 3px 3px 5px var(--shadow-color), inset -3px -3px 5px rgba(255, 255, 255, 0.7);
+      width: 80%;
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    .onboarding-button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .onboarding-button:hover {
+      background-color: #e67300;
+      transform: translateY(-3px);
+    }
+
+    .spiritual-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 9s infinite ease-in-out;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-80px) rotate(180deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="spiritual-particles" id="particles"></div>
+  <div class="container">
+    <div class="logo">
+      <img src="https://www.sakha.chat/logo.png" alt="Sakha Logo">
+    </div>
+    <div class="welcome-message" id="welcomeMessage"></div>
+    <div class="auth-container">
+      <input type="email" class="auth-input" placeholder="Email" required>
+      <input type="password" class="auth-input" placeholder="Password" required>
+      <button class="auth-button" onclick="login()">Login</button>
+      <a href="#" class="forgot-password" onclick="forgotPassword()">Forgot Password?</a>
+      <div class="signup-link">
+        Don't have an account? <a href="#" onclick="startOnboarding()">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="onboarding-container" id="onboardingContainer">
+    <div class="onboarding-message" id="onboardingMessage"></div>
+    <input type="text" class="onboarding-input" id="onboardingInput" style="display: none;">
+    <button class="onboarding-button" id="onboardingButton" onclick="nextOnboardingStep()" style="display: none;">Next</button>
+  </div>
+
+  <script>
+    const welcomeMessages = [
+      "Embark on a journey of self-discovery",
+      "Unlock the wisdom within you",
+      "Find peace in the chaos of life",
+      "Cultivate mindfulness and inner strength",
+      "Connect with your higher self"
+    ];
+
+    let currentMessageIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeWriter() {
+      const welcomeMessage = document.getElementById('welcomeMessage');
+      const currentMessage = welcomeMessages[currentMessageIndex];
+
+      if (isDeleting) {
+        welcomeMessage.textContent = currentMessage.substring(0, currentCharIndex + 10);
+        currentCharIndex--;
+      } else {
+        welcomeMessage.textContent = currentMessage.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+      }
+
+      if (!isDeleting && currentCharIndex === currentMessage.length) {
+        isDeleting = true;
+        typingSpeed = 40;
+        setTimeout(() => {
+          isDeleting = false;
+          currentMessageIndex = (currentMessageIndex + 1) % welcomeMessages.length;
+          typingSpeed = 60;
+        }, 1400);
+      } else if (isDeleting && currentCharIndex === 0) {
+        isDeleting = false;
+      }
+
+      const randomSpeed = Math.random() * 50 + 70;
+      setTimeout(typeWriter, isDeleting ? typingSpeed : randomSpeed);
+    }
+
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 10;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.width = `${Math.random() * 10 + 10}px`;
+        particle.style.height = particle.style.width;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    function login() {
+      // Implement login functionality here
+      alert("Login functionality to be implemented");
+    }
+
+    function forgotPassword() {
+      // Implement forgot password functionality here
+      alert("Forgot password functionality to be implemented");
+    }
+
+    const onboardingSteps = [
+      { message: "Namaste! I'm Sakha, your spiritual friend. What's your name?", inputType: "text", placeholder: "Enter your name" },
+      { message: "It's wonderful to meet you, {name}! What's your email address?", inputType: "email", placeholder: "Enter your email" },
+      { message: "Great! Now, let's create a password to keep your journey safe.", inputType: "password", placeholder: "•••••••" },
+      { message: "Thank you, {name}! Your spiritual journey with Sakha begins now. Welcome aboard!" }
+    ];
+
+    let currentStep = 0;
+    let userData = {};
+
+    function startOnboarding() {
+      document.querySelector('.container').style.display = 'none';
+      document.getElementById('onboardingContainer').style.display = 'flex';
+      showOnboardingStep();
+    }
+
+    function showOnboardingStep() {
+      const messageEl = document.getElementById('onboardingMessage');
+      const inputEl = document.getElementById('onboardingInput');
+      const buttonEl = document.getElementById('onboardingButton');
+
+      let message = onboardingSteps[currentStep].message;
+      if (userData.name) {
+        message = message.replace('{name}', userData.name);
+      }
+
+      messageEl.textContent = '';
+      inputEl.style.display = currentStep < onboardingSteps.length - 1 ? 'block' : 'none';
+      buttonEl.style.display = 'block';
+
+      if (currentStep < onboardingSteps.length - 1) {
+        inputEl.type = onboardingSteps[currentStep].inputType;
+        inputEl.placeholder = onboardingSteps[currentStep].placeholder;
+      } else {
+        buttonEl.textContent = 'Start Your Journey';
+      }
+
+      typeOnboardingMessage(message);
+    }
+
+    function typeOnboardingMessage(message, index = 0) {
+      const messageEl = document.getElementById('onboardingMessage');
+      if (index < message.length) {
+        messageEl.textContent += message[index];
+        setTimeout(() => typeOnboardingMessage(message, index + 1), 30);
+      }
+    }
+
+    function nextOnboardingStep() {
+      const inputEl = document.getElementById('onboardingInput');
+
+      if (currentStep < onboardingSteps.length - 1) {
+        if (currentStep === 0) userData.name = inputEl.value;
+        if (currentStep === 1) userData.email = inputEl.value;
+        if (currentStep === 2) userData.password = inputEl.value;
+
+        inputEl.value = '';
+      }
+
+      currentStep++;
+
+      if (currentStep < onboardingSteps.length) {
+        showOnboardingStep();
+      } else {
+        // Here you would typically send the userData to your server
+        console.log("User data:", userData);
+        alert("Sign up complete! Welcome to Sakha.");
+        window.location.href = 'https://example.com'; // Reload the page to return to the initial state
+      }
+    }
+
+    typeWriter();
+    createParticles();
+  </script>
+</body>
+
+</html>
