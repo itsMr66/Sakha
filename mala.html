@@ -246,25 +246,7 @@
         z-index: 1001
       }
 
-      .nav-item {
-        text-decoration: none;
-        color: var(--text-color);
-        font-size: 0.8rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: all 0.3s ease
-      }
 
-      .nav-item:hover {
-        color: var(--primary-color);
-        transform: translateY(-3px)
-      }
-
-      .nav-item i {
-        font-size: 1.2rem;
-        margin-bottom: 3px
-      }
 
       /* ... (previous styles remain the same) ... */
       
@@ -316,7 +298,12 @@
       }
       
       .nav-item:hover {
-        color: var(--primary-color);
+        color: #FF8C00;
+        transform: translateY(-3px);
+      }
+            .nav-active {
+        color: #FF8C00;
+        
         transform: translateY(-3px);
       }
       
@@ -353,8 +340,8 @@
       <i id="darkModeIcon" class="fas fa-sun"></i>
     </button>
   </div>
-  <nav class="navigation"><a href="#" class="nav-item"><i class="fas fa-home"></i><span>Books</span></a><a href="#" class="nav-item"><i class="fas fa-book"></i><span>Chanting</span></a><a href="#" class="nav-item"><i class="fas fa-leaf"></i><span>Geeta</span></a><a href="#" class="nav-item"><i class="fas fa-user"></i><span>Profile</span></a>
-  <a href="#" class="nav-item"><i class="fas fa-book"></i><span>Chanting</span></a>
+  <nav class="navigation"><a href="#" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a><a href="#" class="nav-item"><i class="fas fa-book"></i><span>Books</span></a><a href="#" class="nav-active nav-item"><i class="fas fa-om"></i><span>Chanting</span></a><a href="#" class="nav-item"><i class="fas fa-leaf"></i><span>Remedies</span></a>
+  <a href="#" class="nav-item"><i class="fas fa-gamepad"></i><span>Game</span></a>
   </nav>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -604,4 +591,4 @@ darkModeToggle.addEventListener('click', () => {
   </script>
 </body>
 
-</html>
+  </html>
